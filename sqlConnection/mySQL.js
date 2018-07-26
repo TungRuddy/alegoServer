@@ -3,16 +3,16 @@ var app = express();
 var mysql = require('mysql');
 
 con = mysql.createConnection({
-    host: "localhost",
+    host: "178.128.92.249",
     user: "root",
-    password: "",
+    password: "MinhKhang1!",
     database: "alego"
 });
 
 exports.conn = mysql.createConnection({
-    host: "localhost",  // sql200.epizy.com            //sql12.freemysqlhosting.net
+    host: "178.128.92.249",  // sql200.epizy.com            //sql12.freemysqlhosting.net
     user: "root",                 // epiz_22223626               //sql12242320
-    password: "",              // qtU13PVziUfo                //tNihDCZz1A
+    password: "MinhKhang1!",              // qtU13PVziUfo                //tNihDCZz1A
     database: "alego"              // epiz_22223626_alego         // sql12242320
 });
 
