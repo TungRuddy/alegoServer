@@ -38,41 +38,41 @@ router.post('/', function (req, res) {
             "status": 0,
         };
         mysql.conn.query(insertSql, insertValues, function (error, results) {
-            if (error) throw error;
-            if (results.insertId) {
-                var valueUserAddress = {
-                    "id_user": results.insertId,
-                    "address": reqObj.address,
-                    "tagName": reqObj.name,
-                    "phone": reqObj.phone,
-                };
-                mysql.conn.query("INSERT INTO `user_address` SET ?", valueUserAddress, function (error, address) {
-                    if (address.insertId) {
-                        mysql.conn.query('UPDATE `user` SET `main_address`=? where `id_user`=?', [address.insertId, results.insertId], function (err, data) {
-                            console.log(data);
-                            var params = {};
-                            params.toEmail = reqObj.email;
-                            params.name = reqObj.name;
-                            params.verifyURL = `http://` + local_ip.port + `/newsignup/` + Buffer.from(String(results.insertId)).toString('base64') + `/` + Buffer.from(reqObj.email).toString('base64');
+//             if (error) throw error;
+//             if (results.insertId) {
+//                 var valueUserAddress = {
+//                     "id_user": results.insertId,
+//                     "address": reqObj.address,
+//                     "tagName": reqObj.name,
+//                     "phone": reqObj.phone,
+//                 };
+//                 mysql.conn.query("INSERT INTO `user_address` SET ?", valueUserAddress, function (error, address) {
+//                     if (address.insertId) {
+//                         mysql.conn.query('UPDATE `user` SET `main_address`=? where `id_user`=?', [address.insertId, results.insertId], function (err, data) {
+//                             console.log(data);
+//                             var params = {};
+//                             params.toEmail = reqObj.email;
+//                             params.name = reqObj.name;
+//                             params.verifyURL = `http://` + local_ip.port + `/newsignup/` + Buffer.from(String(results.insertId)).toString('base64') + `/` + Buffer.from(reqObj.email).toString('base64');
 
-                            if (reqObj.language == "vi") {
-                                params.subject = "Chào mừng đến với AgriLego - Nông trại thông minh ,cảm ơn vì đã đăng ký !";
-                                mailerVn.sendNewSignUpEmail(params, function (result) {
-                                    res.json({ message: 'Cảm ơn bạn đã đăng ký, hãy kiểm tra hộp thư email để kích hoạt tài khoản của bạn!' });
-                                });
-                            } else {
-                                params.subject = "Welcome to AgriLego ,thanks for signup !";
-                                mailerEn.sendNewSignUpEmail(params, function (result) {
-                                    res.json({ message: 'Thanks for signup! , please check email to active your AgriLego account.' });
-                                });
-                            }
+//                             if (reqObj.language == "vi") {
+//                                 params.subject = "Chào mừng đến với AgriLego - Nông trại thông minh ,cảm ơn vì đã đăng ký !";
+//                                 mailerVn.sendNewSignUpEmail(params, function (result) {
+//                                     res.json({ message: 'Cảm ơn bạn đã đăng ký, hãy kiểm tra hộp thư email để kích hoạt tài khoản của bạn!' });
+//                                 });
+//                             } else {
+//                                 params.subject = "Welcome to AgriLego ,thanks for signup !";
+//                                 mailerEn.sendNewSignUpEmail(params, function (result) {
+//                                     res.json({ message: 'Thanks for signup! , please check email to active your AgriLego account.' });
+//                                 });
+//                             }
 
-                        });
-                    } else {
-                        res.json({ message: 'Error' });
-                    }
-                });
-            }
+//                         });
+//                     } else {
+//                         res.json({ message: 'Error' });
+//                     }
+//                 });
+//             }
         });
     }
 });
