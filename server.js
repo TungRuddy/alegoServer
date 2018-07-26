@@ -20,7 +20,7 @@ app.use(require('./controllers'));
 
 var io = require('socket.io')(http);
 
-app.listen(80, local_ip.port, function () {
+app.listen(6000, local_ip.port, function () {
     console.log('Node server running at ip: ' + local_ip.port);
 });
 
