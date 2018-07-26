@@ -11,7 +11,7 @@ var SubjectRequiredError =  Error('email address required');
 //
 var configMail = {
     user:'manhtung321@gmail.com',
-    pass:'tungtung619'
+    pass:'eelwtnocplnpoquh'
 };
 var transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',

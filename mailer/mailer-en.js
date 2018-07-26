@@ -7,7 +7,7 @@ var templatesDir = path.resolve(__dirname, '..', 'mailer/templates-en');
 
 var configMail = {
     user:'manhtung321@gmail.com',
-    pass:'tungtung619'
+    pass:'eelwtnocplnpoquh'
 };
 // Local 
 var EmailAddressRequiredError =  Error('email address required');
