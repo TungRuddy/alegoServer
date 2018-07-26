@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- NOTE: external links are for testing only -->
+    <link href="style.scss" rel="stylesheet" />
+  </head>
+  <body>
+    <table class="mui-body head" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td>
+          <center>
+            <!--[if mso]><table><tr><td class="mui-container-fixed"><![endif]-->
+              <% include header %>
+            <div class="mui-container mui--text-left body">
+                
+                <div class="mui-panel">
+                    <div class="mui--text-title mui--text-dark-secondary mui--text-center"><strong>Đặt lại mật khẩu</strong></div>
+                    <br>
+                        <p> Xin chào <%= params.name%>!</p>
+                        <p>Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu của bạn. Nếu bạn không thực hiện yêu cầu, vui lòng bỏ qua email này. Hoặc, bạn có thể đặt lại mật khẩu bằng cách bấm vào liên kết dưới đây:
+                        </p>
+                        <br>
+                        <div class="mui--text-center">
+                        <a href="<%= params.verifyURL%>" class="mui-btn mui-btn--raised mui-btn--primary"><strong>Đặt lại mật khẩu</strong></a>
+                        </div>
+                        <br>
+                                              
+                        <span>
+                          Hoặc sao chép và dán liên kết dưới đây vào trình duyệt web của bạn. <br> <br>
+                                <div class="mui--text-center"><a href="<%= params.verifyURL%>"><%= params.verifyURL%></a></div>
+                        </span>
+                        <br>
+                        <span>Trân trọng,<br>AgriLego Team</span>
+                      
+                        
+                </div>
+                <br>
+            </div>
+            
+            
+            <!--[if mso]></td></tr></table><![endif]-->
+          </center>
+        </td>
+      </tr>
+    </table>
+    <% include footer %>
+  </body>
+</html>
